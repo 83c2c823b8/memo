@@ -1,0 +1,42 @@
+\RequirePackage{luatex85}
+\documentclass[leqno]{ltjsarticle}% leqnoは数式番号左
+\usepackage{luatexja-fontspec}
+\usepackage[top=10truemm,bottom=10truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage{luatexja} 
+\usepackage{multicol,amsmath,amssymb,mathtools,ascmac,amsthm,amscd,physics,comment,dcolumn,titlesec,mathrsfs,mypkg}
+\usepackage[all]{xy}
+\titleformat*{\section}{\Large\bfseries}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+%\everymath{\displaystyle}
+\begin{document}
+{\textbf{\Large{院試}}}\hspace{\fill} {理学部数学科\texttt{\Large{04A21051}}}{\Large{山本 雄大}}\\
+距離空間で考える.
+\thm{}{
+	コンパクト集合上の連続関数は最大値,最小値を持つ.
+}
+$K$コンパクト,$f$連続とする.
+\[R \coloneq f(K)\]
+$b\coloneq \sup R$として,$R$の点列コンパクト性を示せばよい. \\
+点列$\{y_n\}_n$を任意にとる.$f(x_n)=y_n$となる$\{x_n\}_n$が存在して,$K$点列コンパクトより$x_{n(k)}\to a (a\in K)$となる収束部分列が存在する.
+このとき,$y_{n(k)}\to f(a) \in R$したがって,点列コンパクトである.
+\thm{}{
+	コンパクト集合上の連続関数は一様連続
+}
+コンパクト集合$K$と連続関数$f$を考え,$\varepsilon > 0$を任意に固定する.\\
+$f$連続より,各点$x\in K$においてある$\delta_{x}$が存在して,$d(x,y) < \delta_{x} \Longrightarrow |f(x) - f(y) | < \frac12\varepsilon $\\
+\[U_x = \{y \in K \mid d(x,y) < \frac12 \delta_x\}\] 
+(ここの$1/2 \delta_x$ のとり方がｶｼｺｲ)\\
+と定めれば$U_x$は$K$の開被覆であり,コンパクトであることから有限個におとせる.
+\[\bigcup_{i=1}^n U_{x_i} \supseteq K\]
+$\delta \coloneq \frac12 \min(\delta_{x_1},\ldots , \delta_{x_n})$とさだめると\\
+$d(x,y)< \delta$をみたす任意の$x,y \in K $に対して,ある$i$が存在して,$x\in U_{x_i}$.したがって,$d(x,x_i) < \frac12 \delta_{x_i}$\\
+連続性より
+\[|f(x_i) - f(x) |< \frac12 \varepsilon\]
+また,
+\[d(y,x_i) \leq d(y,x) + d(x,x_i) < \delta + \frac12 \delta_{x_i} < \delta_{x_i}\]
+\[|f(x_i) - f(y)| < \frac12 \varepsilon\]
+したがって
+\[|f(x) - f(y)|<\varepsilon \]
+\end{document}
+
