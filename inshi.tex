@@ -12,7 +12,7 @@
 \begin{document}
 {\textbf{\Large{院試}}}\hspace{\fill} {理学部数学科\texttt{\Large{04A21051}}}{\Large{山本 雄大}}\\
 距離空間で考える.
-\thm{}{
+\mythm{
 	コンパクト集合上の連続関数は最大値,最小値を持つ.
 }
 $K$コンパクト,$f$連続とする.
@@ -20,7 +20,7 @@ $K$コンパクト,$f$連続とする.
 $b\coloneq \sup R$として,$R$の点列コンパクト性を示せばよい. \\
 点列$\{y_n\}_n$を任意にとる.$f(x_n)=y_n$となる$\{x_n\}_n$が存在して,$K$点列コンパクトより$x_{n(k)}\to a (a\in K)$となる収束部分列が存在する.
 このとき,$y_{n(k)}\to f(a) \in R$したがって,点列コンパクトである.
-\thm{}{
+\mythm{
 	コンパクト集合上の連続関数は一様連続
 }
 コンパクト集合$K$と連続関数$f$を考え,$\varepsilon > 0$を任意に固定する.\\
@@ -38,5 +38,52 @@ $d(x,y)< \delta$をみたす任意の$x,y \in K $に対して,ある$i$が存在
 \[|f(x_i) - f(y)| < \frac12 \varepsilon\]
 したがって
 \[|f(x) - f(y)|<\varepsilon \]
-\end{document}
+\mythm{
+	コンパクト$\Longleftrightarrow$ 点列コンパクト
+}
 
+\mythm{
+	$|H| = |x\inv H x|$
+}
+$h\mapsto x\inv hx$は全単射\\
+全射は定義より，単射は$x\inv hx = x\inv h'x$なら$h=h'$
+
+\mydef{
+	$\sigma' = \tau\inv\sigma\tau\ \  (\exists \tau\in G)$
+	のとき$\sigma'$と$\sigma$は共役．
+}	
+
+\mydef{
+	対称群のサイクルタイプとは
+	\[\sigma = (i_1\cdots i_s)(j_1 \cdots j_t)(k_1 \cdots k_u) \]
+	の$(s,t,\ldots ,u)$
+}
+
+\mythm{
+	$S_n$で共役$\Longleftrightarrow$サイクルタイプが一致
+}
+
+\mythm{
+	$S_n$の共役類数は分割数$p(n)$
+}
+
+\mythm{
+		$x$の共役類を$C(x)$，$G$の中心を$Z$と記すと
+		$|C(x)|,|Z|$は$|G|$を割り切る．
+}
+\[g\circ x \coloneq g\inv xg\]
+と作用を定義すると，作用による軌道の要素の数と固定する部分群の位数の積が$G$の位数になる．\\
+$x$の$G$における固定部分群を$\mathrm{Stab_G}(x)$としるすと，全射$f\colon G \to \mathrm{Orb_G}(x)$
+の核は$\mathrm{Stab_G}(x)$なので順同型定理っぽくやればわかる．
+
+\mythm{
+	$p$郡の中心は非自明
+}
+$|Z|=1$とすると類等式から矛盾が生じる．
+
+\mythm{
+	$p$群の位数$p$の部分群$H$が正規部分群$\Longleftrightarrow$ $H\subseteq Z$
+}
+$\{1\}$が一つの軌道になっていることと，軌道が$|G|=p^n$を割り切ること$|H|=p$であることから
+各点が一つの軌道をなしていることからしたがう．
+\end{document}
