@@ -43,13 +43,13 @@ $d(x,y)< \delta$をみたす任意の$x,y \in K $に対して,ある$i$が存在
 }
 
 \mythm{
-	$|H| = |x\inv H x|$
+	$|H| = |xHx\inv|$
 }
-$h\mapsto x\inv hx$は全単射\\
-全射は定義より，単射は$x\inv hx = x\inv h'x$なら$h=h'$
+$h\mapsto xhx\inv$は全単射\\
+全射は定義より，単射は$xhx\inv  = xh'x\inv$なら$h=h'$
 
 \mydef{
-	$\sigma' = \tau\inv\sigma\tau\ \  (\exists \tau\in G)$
+	$\sigma' = \tau\sigma\tau\inv\ \  (\exists \tau\in G)$
 	のとき$\sigma'$と$\sigma$は共役．
 }	
 
@@ -71,13 +71,13 @@ $h\mapsto x\inv hx$は全単射\\
 		$x$の共役類を$C(x)$，$G$の中心を$Z$と記すと
 		$|C(x)|,|Z|$は$|G|$を割り切る．
 }
-\[g\circ x \coloneq g\inv xg\]
+\[g\circ x \coloneq gxg\inv\]
 と作用を定義すると，作用による軌道の要素の数と固定する部分群の位数の積が$G$の位数になる．\\
 $x$の$G$における固定部分群を$\mathrm{Stab_G}(x)$としるすと，全射$f\colon G \to \mathrm{Orb_G}(x)$
 の核は$\mathrm{Stab_G}(x)$なので順同型定理っぽくやればわかる．
 
 \mythm{
-	$p$郡の中心は非自明
+	$p$群の中心は非自明
 }
 $|Z|=1$とすると類等式から矛盾が生じる．
 
@@ -86,4 +86,52 @@ $|Z|=1$とすると類等式から矛盾が生じる．
 }
 $\{1\}$が一つの軌道になっていることと，軌道が$|G|=p^n$を割り切ること$|H|=p$であることから
 各点が一つの軌道をなしていることからしたがう．
+
+\mythm{
+	$p$が$|G|$の最小の素因数で$H<G,[G:H]=p$なら$H$は正規部分群である.
+}
+\[\phi\colon G \to S(G/H) \simeq \mathfrak{S}_p\]
+の作用を考えると$\ker \phi \subseteq H$
+\[[G:\ker \phi] = [G:H][H:\ker\phi] = p[H:\ker\phi] \]
+ここで,$[G:\ker\phi]=|G/\ker\phi|=|\Im\phi|$であり,$\Im\phi$は$\mathfrak{S}_n$の部分群なので$|\Im\phi|$ は$|\mathfrak{S}_n|=p!$を割り切る.\\
+$[G:\Ker\phi]=p$でなければ,$[G:\ker\phi]$が$p-1$以下の約数を持つことになり仮定に矛盾.
+したがって,$[H:\ker\phi]=1$,核は正規部分群なのでok.
+
+\mythm{
+	$G$が$H,K$の直積になる.\vspace{-3mm}
+			\begin{enumerate}
+				\item[(1)]
+					$H,K$は$G$の正規部分群
+				\item[(2)]
+					$H\cap K = 1$
+				\item[(3)]
+					$G=HK$
+			\end{enumerate}
+}
+
+\mythm{
+	$\{a_n\}_n$は$a_n\leq 0$かつ広義単調減少,$\lim_{n\to\infty}a_n = 0$
+	\[\sum_{n=0}^\infty (-1)^{n+1}a_n\]は収束.
+}
+二項ずつ考えればできる.
+
+\mythm{
+	d'Alembertの収束判定法\\
+	$\sum a_n$について
+	\[\limsup_{n\to\infty}\qty|\frac{a_{n+1}}{a_n}| < 1\]
+	なら収束
+	\[\liminf_{n\to\infty}\qty|\frac{a_{n+1}}{a_n}| > 1\]
+	なら発散
+}
+収束する方は,ある$N$より大きいとその絶対値の級数は$(1-\varepsilon)$の等比数列で抑えられる.
+発散する方は$\lim_{n\to\infty}a_n$が0に収束しない
+
+\mythm{
+	Cauchyの収束判定法\\
+	$\sum a_n$について
+	\[\limsup_{n\to\infty}\sqrt[n]{|a_n|}=r\]
+	$0\le r < 1$なら絶対収束
+	$r>1$なら発散
+}
+ダランベールと同じ感じ
 \end{document}
