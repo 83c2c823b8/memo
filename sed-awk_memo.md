@@ -7,13 +7,15 @@ w
 ```
 
 ```sh
-printf "%5s\n" "x  y"  "y----z"
-    x
-    y
+printf "%10s\n" "x  y"  "y----z"
+      x  y
+    y----z
 ```
 
 ```sh
-printf "%-5s\n" "x  y"  "y                z"
+printf "%-10s\n" "x  y"  "y----z"
+x  y
+y----z
 ```
 
 ```sh
