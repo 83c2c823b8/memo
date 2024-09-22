@@ -31,3 +31,7 @@
 ## construct
 - con- com- co- 共に cf. company, coworker, cooperate, combine
 - struct 構造, cf. instruct, obstruct,structurey
+
+## legend
+伝説，図の説明
+- legere 読む，集める cf. legible, illegibe, elegant, college, diligent, lecture, legal
