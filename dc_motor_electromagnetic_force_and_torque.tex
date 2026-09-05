@@ -1,0 +1,378 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Preamble ----------
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{enumitem}
+
+\title{Electromagnetic Force and Torque in a DC Motor}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Force on a Current-Carrying Conductor}
+
+A conductor carrying an electric current in a magnetic field experiences
+an electromagnetic force.
+
+In vector form,
+
+\[
+\boxed{
+\bm{F}
+=
+I\,\bm{\ell}\times\bm{B}
+}
+\]
+
+where
+
+\begin{itemize}
+    \item $\bm{F}$ is the electromagnetic force,
+    \item $I$ is the electric current,
+    \item $\bm{\ell}$ is the length vector of the conductor,
+    \item $\bm{B}$ is the magnetic flux density.
+\end{itemize}
+
+The current $I$ is a \emph{scalar}.  
+The direction of the current is represented by the direction of
+$\bm{\ell}$.
+
+The magnitude of the force is therefore
+
+\[
+F = I\ell B\sin\theta,
+\]
+
+where $\theta$ is the angle between $\bm{\ell}$ and $\bm{B}$.
+
+If the conductor is perpendicular to the magnetic field,
+
+\[
+\theta = 90^\circ,
+\]
+
+and hence
+
+\[
+\boxed{
+F = BI\ell
+}
+\]
+
+since $\sin 90^\circ = 1$.
+
+\section{From Force to Torque}
+
+Torque is produced when a force acts at a distance from the axis of
+rotation.
+
+In vector form,
+
+\[
+\boxed{
+\bm{T}
+=
+\bm{r}\times\bm{F}
+}
+\]
+
+where $\bm{r}$ is the position vector from the axis of rotation to the
+point at which the force acts.
+
+Its magnitude is
+
+\[
+T = rF\sin\alpha.
+\]
+
+For the usual geometry of a DC motor, the electromagnetic force acts
+approximately perpendicular to the radius, so
+
+\[
+T = rF.
+\]
+
+Using
+
+\[
+F = BI\ell,
+\]
+
+we obtain
+
+\[
+T = rBI\ell.
+\]
+
+Thus, for a motor of fixed geometry,
+
+\[
+\boxed{
+T \propto BI
+}
+\]
+
+because $r$ and $\ell$, together with the number and arrangement of
+conductors, are fixed by the construction of the motor.
+
+\section{Magnetic Flux and Magnetic Flux Density}
+
+For a uniform magnetic field perpendicular to an area $A$,
+
+\[
+\boxed{
+\phi = BA
+}
+\]
+
+where
+
+\begin{itemize}
+    \item $\phi$ is the magnetic flux,
+    \item $B$ is the magnetic flux density,
+    \item $A$ is the area through which the magnetic field passes.
+\end{itemize}
+
+For a motor of fixed geometry, $A$ is constant. Therefore,
+
+\[
+B \propto \phi.
+\]
+
+Substituting this relationship into
+
+\[
+T \propto BI,
+\]
+
+gives
+
+\[
+\boxed{
+T \propto \phi I
+}
+\]
+
+and for the armature of a DC motor,
+
+\[
+\boxed{
+T = K_T \phi I_a
+}
+\]
+
+where
+
+\begin{itemize}
+    \item $T$ is the electromagnetic torque,
+    \item $K_T$ is the torque constant,
+    \item $\phi$ is the magnetic flux per pole,
+    \item $I_a$ is the armature current.
+\end{itemize}
+
+Therefore, the electromagnetic torque of a DC motor is proportional to
+both the magnetic flux and the armature current.
+
+\section{Back EMF}
+
+When the armature rotates in a magnetic field, an electromotive force
+is induced in the armature conductors.
+
+This induced voltage opposes the applied voltage and is therefore
+called the \emph{back electromotive force} (back EMF).
+
+For a DC motor,
+
+\[
+\boxed{
+E = K_E \phi N
+}
+\]
+
+where
+
+\begin{itemize}
+    \item $E$ is the back EMF,
+    \item $K_E$ is the EMF constant,
+    \item $\phi$ is the magnetic flux per pole,
+    \item $N$ is the rotational speed.
+\end{itemize}
+
+Hence,
+
+\[
+\boxed{
+E \propto \phi N
+}
+\]
+
+For constant magnetic flux,
+
+\[
+\boxed{
+E \propto N
+}
+\]
+
+so the back EMF increases as the motor rotates faster.
+
+\section{Armature Voltage Equation}
+
+Applying Kirchhoff's voltage law to the armature circuit gives
+
+\[
+\boxed{
+V = E + I_a R_a
+}
+\]
+
+or equivalently,
+
+\[
+\boxed{
+E = V - I_a R_a
+}
+\]
+
+where
+
+\begin{itemize}
+    \item $V$ is the terminal voltage,
+    \item $E$ is the back EMF,
+    \item $I_a$ is the armature current,
+    \item $R_a$ is the armature resistance.
+\end{itemize}
+
+Thus,
+
+\[
+\boxed{
+I_a = \frac{V-E}{R_a}
+}
+\]
+
+The term $I_aR_a$ is an actual resistive voltage drop, whereas $E$ is
+an induced voltage caused by the rotation of the armature.
+
+\section{Mechanical Power}
+
+For translational motion,
+
+\[
+W = Fx.
+\]
+
+For rotational motion, the corresponding relation is
+
+\[
+\boxed{
+W = T\theta
+}
+\]
+
+where $\theta$ is the angular displacement.
+
+Dividing by time,
+
+\[
+P
+=
+\frac{W}{t}
+=
+T\frac{\theta}{t}.
+\]
+
+Since angular velocity is
+
+\[
+\omega = \frac{\theta}{t},
+\]
+
+the mechanical power is
+
+\[
+\boxed{
+P = T\omega
+}
+\]
+
+Thus, the correspondence between translational and rotational motion is
+
+\[
+\boxed{
+\begin{aligned}
+W &= Fx
+&\quad&\longleftrightarrow&
+W &= T\theta,\\
+P &= Fv
+&&\longleftrightarrow&
+P &= T\omega.
+\end{aligned}
+}
+\]
+
+\section{Summary}
+
+The important relationships for a DC motor are
+
+\[
+\boxed{
+\bm{F}=I\bm{\ell}\times\bm{B}
+}
+\]
+
+\[
+\boxed{
+T=K_T\phi I_a
+}
+\]
+
+\[
+\boxed{
+E=K_E\phi N
+}
+\]
+
+\[
+\boxed{
+V=E+I_aR_a
+}
+\]
+
+and
+
+\[
+\boxed{
+P=T\omega.
+}
+\]
+
+The physical chain can be summarized as
+
+\[
+\text{Magnetic field + armature current}
+\longrightarrow
+\text{electromagnetic force}
+\longrightarrow
+\text{torque}
+\longrightarrow
+\text{rotation}.
+\]
+
+At the same time, rotation of the armature in the magnetic field
+produces the back EMF:
+
+\[
+\text{magnetic flux + rotation}
+\longrightarrow
+\text{back EMF}.
+\]
+
+\end{document}
