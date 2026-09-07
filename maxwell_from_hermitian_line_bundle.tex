@@ -1,0 +1,831 @@
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================
+% Packages
+% ============================================================
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+
+\usepackage{geometry}
+\geometry{
+  left=30mm,
+  right=30mm,
+  top=30mm,
+  bottom=30mm
+}
+
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+% ============================================================
+% Theorem environments
+% ============================================================
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{remark}[definition]{Remark}
+
+% ============================================================
+% Commands
+% ============================================================
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\Om}{\Omega}
+\newcommand{\Gam}{\Gamma}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\PD}{\operatorname{PD}}
+
+% ============================================================
+% Title
+% ============================================================
+
+\title{\textbf{Maxwell Theory from a Hermitian Complex Line Bundle}}
+\author{}
+\date{}
+
+% ============================================================
+% Document
+% ============================================================
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Spacetime}
+
+We begin with a smooth, oriented, four-dimensional manifold
+\[
+M.
+\]
+
+To formulate classical electromagnetism, we equip $M$ with a
+Lorentzian metric
+\[
+g \in \Gamma\bigl(S^2T^*M\bigr)
+\]
+of signature
+\[
+(-,+,+,+).
+\]
+
+Thus, at each point $x\in M$, the metric defines a nondegenerate
+symmetric bilinear form
+\[
+g_x:T_xM\times T_xM\longrightarrow \R.
+\]
+
+We assume that $M$ is oriented and time-oriented.
+
+The metric and orientation determine the Hodge star operator
+\[
+*:\Omega^k(M)\longrightarrow\Omega^{4-k}(M).
+\]
+
+For differential forms $\alpha,\beta\in\Omega^k(M)$, the Hodge star
+is characterized by
+\[
+\alpha\wedge *\beta
+=
+\langle \alpha,\beta\rangle_g\,\vol_g,
+\]
+where $\vol_g$ denotes the metric volume form.
+
+The Hodge star is the part of Maxwell theory that depends explicitly
+on the geometry of spacetime.
+
+\section{Complex Line Bundles}
+
+\begin{definition}[Complex line bundle]
+A \emph{complex line bundle} over $M$ is a smooth vector bundle
+\[
+\pi:L\longrightarrow M
+\]
+whose fibers
+\[
+L_x=\pi^{-1}(x)
+\]
+are one-dimensional complex vector spaces.
+
+Equivalently,
+\[
+\dim_{\C}L_x=1
+\]
+for every $x\in M$.
+\end{definition}
+
+Locally, every complex line bundle is trivial. Thus for every
+$x\in M$, there exists an open neighborhood $U\subset M$ such that
+\[
+L|_U\cong U\times\C.
+\]
+
+A smooth section of $L$ is a smooth map
+\[
+\psi:M\longrightarrow L
+\]
+such that
+\[
+\pi\circ\psi=\id_M.
+\]
+
+The space of smooth sections is denoted by
+\[
+\Gamma(L).
+\]
+
+\section{Hermitian Structure}
+
+\begin{definition}[Hermitian structure]
+A \emph{Hermitian structure} on $L$ is a smoothly varying family of
+positive-definite Hermitian inner products
+\[
+h_x:L_x\times L_x\longrightarrow\C.
+\]
+
+Thus
+\[
+h_x(v,w)=\overline{h_x(w,v)}
+\]
+and
+\[
+h_x(v,v)>0
+\]
+for every nonzero $v\in L_x$.
+\end{definition}
+
+A complex line bundle equipped with such a metric is called a
+\emph{Hermitian complex line bundle}.
+
+The Hermitian structure reduces the structure group of the line
+bundle from
+\[
+\C^\times
+\]
+to
+\[
+U(1).
+\]
+
+Consequently, electromagnetism may be interpreted geometrically as
+a $U(1)$ gauge theory.
+
+\section{Connections}
+
+Values of a section at distinct spacetime points belong to different
+vector spaces:
+\[
+\psi(x)\in L_x,
+\qquad
+\psi(y)\in L_y.
+\]
+
+There is no canonical way to compare these vectors. A connection
+provides an infinitesimal rule for doing so.
+
+\begin{definition}[Connection]
+A connection on $L$ is a $\C$-linear map
+\[
+\nabla:\Gamma(L)
+\longrightarrow
+\Omega^1(M;L)
+\]
+satisfying the Leibniz rule
+\[
+\nabla(f\psi)
+=
+\dd f\otimes\psi
++
+f\nabla\psi
+\]
+for every
+\[
+f\in C^\infty(M,\C),
+\qquad
+\psi\in\Gamma(L).
+\]
+\end{definition}
+
+\begin{definition}[Hermitian connection]
+A connection $\nabla$ is compatible with the Hermitian structure
+if
+\[
+\dd\,h(\psi,\phi)
+=
+h(\nabla\psi,\phi)
++
+h(\psi,\nabla\phi)
+\]
+for all sections $\psi,\phi\in\Gamma(L)$.
+\end{definition}
+
+Choose a local unitary frame $e$ over an open subset $U\subset M$.
+Every section can then be written locally as
+\[
+\psi=\psi_U e.
+\]
+
+A Hermitian connection takes the local form
+\[
+\nabla
+=
+\dd+\ii A,
+\]
+where
+\[
+A\in\Omega^1(U;\R).
+\]
+
+The real one-form $A$ is the electromagnetic gauge potential.
+
+\section{Gauge Transformations}
+
+A different unitary frame is related to the original one by
+\[
+e'
+=
+e^{-\ii\lambda}e,
+\]
+where
+\[
+\lambda:U\longrightarrow\R.
+\]
+
+Under this change of frame, the local gauge potential transforms as
+\[
+A
+\longmapsto
+A+\dd\lambda.
+\]
+
+This is precisely the usual $U(1)$ gauge transformation.
+
+Therefore, the potential $A$ is not itself an invariant geometric
+object. Rather, it is a local representative of a connection on
+the line bundle.
+
+\section{Curvature}
+
+\begin{definition}[Curvature]
+The curvature of a connection $\nabla$ is the two-form with values
+in $\End(L)$ defined by
+\[
+F_\nabla
+=
+\nabla^2.
+\]
+\end{definition}
+
+For a Hermitian line bundle, the curvature takes values in the Lie
+algebra
+\[
+\mathfrak{u}(1)=\ii\R.
+\]
+
+With the convention
+\[
+\nabla=\dd+\ii A,
+\]
+we obtain
+\[
+F_\nabla
+=
+\ii\,\dd A.
+\]
+
+It is convenient to define the real electromagnetic field-strength
+two-form by
+\[
+F=\dd A.
+\]
+
+Thus
+\[
+F_\nabla=\ii F.
+\]
+
+Under a gauge transformation,
+\[
+A\mapsto A+\dd\lambda,
+\]
+we have
+\[
+F
+\mapsto
+\dd(A+\dd\lambda)
+=
+\dd A
+=
+F.
+\]
+
+Hence $F$ is gauge invariant.
+
+\section{The First Maxwell Equation as a Bianchi Identity}
+
+Since locally
+\[
+F=\dd A,
+\]
+we immediately obtain
+\[
+\dd F
+=
+\dd^2A
+=
+0.
+\]
+
+More intrinsically, this is the Abelian form of the Bianchi identity.
+
+Thus the first half of Maxwell's equations is not a dynamical
+equation. It follows from the geometric fact that the electromagnetic
+field is the curvature of a $U(1)$ connection:
+\[
+\boxed{\dd F=0.}
+\]
+
+\section{The Maxwell Action}
+
+The dynamics of the connection are determined by an action
+functional.
+
+For the free electromagnetic field, define
+\[
+S[A]
+=
+-\frac12
+\int_M
+F\wedge *F,
+\]
+where
+\[
+F=\dd A.
+\]
+
+Equivalently, in local coordinates,
+\[
+S[A]
+=
+-\frac14
+\int_M
+F_{\mu\nu}F^{\mu\nu}
+\sqrt{|\det g|}\,
+\dd^4x.
+\]
+
+Here
+\[
+F
+=
+\frac12
+F_{\mu\nu}
+\dd x^\mu\wedge\dd x^\nu,
+\]
+with
+\[
+F_{\mu\nu}
+=
+\partial_\mu A_\nu
+-
+\partial_\nu A_\mu.
+\]
+
+\section{Variation of the Maxwell Action}
+
+Consider a variation
+\[
+A\longmapsto A+\varepsilon a,
+\]
+where
+\[
+a\in\Omega^1(M)
+\]
+has compact support.
+
+Then
+\[
+F
+\longmapsto
+F+\varepsilon\,\dd a,
+\]
+so
+\[
+\delta F=\dd a.
+\]
+
+The variation of the action is
+\begin{align*}
+\delta S
+&=
+-\frac12
+\delta
+\int_M F\wedge *F
+\\
+&=
+-\int_M
+\dd a\wedge *F.
+\end{align*}
+
+Using
+\[
+\dd(a\wedge *F)
+=
+\dd a\wedge *F
+-
+a\wedge\dd *F,
+\]
+we obtain
+\[
+\dd a\wedge *F
+=
+\dd(a\wedge *F)
++
+a\wedge\dd *F.
+\]
+
+Therefore,
+\[
+\delta S
+=
+-\int_M\dd(a\wedge *F)
+-
+\int_M a\wedge\dd *F.
+\]
+
+Assuming either that $M$ has no boundary or that the variation
+vanishes sufficiently rapidly at the boundary, the first term
+vanishes by Stokes' theorem. Hence
+\[
+\delta S
+=
+-\int_M
+a\wedge\dd *F.
+\]
+
+Since $a$ is arbitrary, the Euler--Lagrange equation is
+\[
+\boxed{\dd *F=0.}
+\]
+
+\section{Vacuum Maxwell Equations}
+
+Combining the geometric identity
+\[
+\dd F=0
+\]
+with the Euler--Lagrange equation
+\[
+\dd *F=0,
+\]
+we obtain the vacuum Maxwell equations:
+\[
+\boxed{
+\begin{aligned}
+\dd F &=0,\\
+\dd *F&=0.
+\end{aligned}
+}
+\]
+
+The two equations have conceptually different origins:
+\[
+\begin{array}{ccc}
+\text{connection}
+&\longrightarrow&
+\text{curvature}
+\\[4pt]
+\nabla
+&\longrightarrow&
+F
+\\[4pt]
+&&\downarrow
+\\[-2pt]
+&&
+\dd F=0,
+\end{array}
+\]
+whereas
+\[
+\begin{array}{ccc}
+g
+&\longrightarrow&
+*
+\\[4pt]
+&&\downarrow
+\\[-2pt]
+F
+&\longrightarrow&
+S[F]
+\\[4pt]
+&&\downarrow
+\\[-2pt]
+&&
+\dd *F=0.
+\end{array}
+\]
+
+Thus
+\[
+\dd F=0
+\]
+is a geometric identity, while
+\[
+\dd *F=0
+\]
+is a dynamical field equation.
+
+\section{Electric and Magnetic Fields}
+
+In Minkowski spacetime with coordinates
+\[
+(x^0,x^1,x^2,x^3)=(t,x,y,z),
+\]
+the electromagnetic two-form can be decomposed as
+\[
+F
+=
+E_i\,\dd x^i\wedge\dd t
++
+\frac12
+\epsilon_{ijk}B^k
+\,\dd x^i\wedge\dd x^j.
+\]
+
+Then
+\[
+\dd F=0
+\]
+is equivalent to
+\[
+\nabla\cdot\mathbf{B}=0
+\]
+and
+\[
+\nabla\times\mathbf{E}
++
+\frac{\partial\mathbf{B}}{\partial t}
+=
+0.
+\]
+
+Similarly,
+\[
+\dd *F=0
+\]
+is equivalent to
+\[
+\nabla\cdot\mathbf{E}=0
+\]
+and
+\[
+\nabla\times\mathbf{B}
+-
+\frac{\partial\mathbf{E}}{\partial t}
+=
+0
+\]
+in units where
+\[
+c=\epsilon_0=\mu_0=1.
+\]
+
+\section{Coupling to an Electric Current}
+
+Let
+\[
+J\in\Omega^1(M)
+\]
+denote the electric four-current one-form.
+
+The interaction term may be written as
+\[
+S_{\mathrm{int}}
+=
+\int_M A\wedge *J.
+\]
+
+The total action is therefore
+\[
+S[A]
+=
+-\frac12\int_M F\wedge *F
++
+\int_M A\wedge *J.
+\]
+
+Variation with respect to $A$ gives
+\[
+\boxed{
+\dd *F=*J.
+}
+\]
+
+Together with the Bianchi identity,
+\[
+\boxed{
+\dd F=0,
+}
+\]
+the Maxwell equations with sources are
+\[
+\boxed{
+\begin{aligned}
+\dd F&=0,\\
+\dd *F&=*J.
+\end{aligned}
+}
+\]
+
+Applying $\dd$ to the second equation yields
+\[
+\dd *J=0.
+\]
+
+This is the differential-form expression of electric charge
+conservation.
+
+\section{Topology of the Electromagnetic Field}
+
+If the line bundle $L$ is globally trivial, one may choose a global
+potential
+\[
+A\in\Omega^1(M)
+\]
+and write globally
+\[
+F=\dd A.
+\]
+
+For a nontrivial line bundle, however, a global potential need not
+exist.
+
+Instead, one has local potentials
+\[
+A_\alpha\in\Omega^1(U_\alpha)
+\]
+related on overlaps by gauge transformations
+\[
+A_\beta
+=
+A_\alpha+\dd\lambda_{\alpha\beta}.
+\]
+
+Nevertheless, the curvature forms agree:
+\[
+\dd A_\alpha
+=
+\dd A_\beta.
+\]
+
+Consequently they define a global two-form
+\[
+F\in\Omega^2(M).
+\]
+
+With the appropriate normalization, its de Rham cohomology class
+satisfies
+\[
+\left[
+\frac{F}{2\pi}
+\right]
+=
+c_1(L)_{\R},
+\]
+where
+\[
+c_1(L)\in H^2(M;\Z)
+\]
+is the first Chern class of the line bundle.
+
+Thus the topology of the electromagnetic gauge bundle is encoded
+in the cohomology class of the electromagnetic field strength.
+
+\section{Geometric Summary}
+
+The construction may be summarized as
+\[
+\boxed{
+(M,g)
+\quad\longrightarrow\quad
+(L,h)
+\quad\longrightarrow\quad
+\nabla
+\quad\longrightarrow\quad
+F_\nabla
+\quad\longrightarrow\quad
+S[\nabla].
+}
+\]
+
+More explicitly,
+\[
+\begin{aligned}
+M
+&=
+\text{spacetime},
+\\
+L\to M
+&=
+\text{Hermitian complex line bundle},
+\\
+\nabla
+&=
+\text{$U(1)$ connection},
+\\
+A
+&=
+\text{local connection one-form},
+\\
+F
+&=
+\text{curvature / electromagnetic field},
+\\
+S
+&=
+-\frac12\int_M F\wedge *F.
+\end{aligned}
+\]
+
+The Maxwell equations then arise from two different geometric
+principles:
+\[
+\boxed{
+\underbrace{\dd F=0}_{\text{Bianchi identity}},
+\qquad
+\underbrace{\dd *F=*J}_{\text{Euler--Lagrange equation}}.
+}
+\]
+
+In this formulation, classical electromagnetism is therefore the
+gauge theory of connections on Hermitian complex line bundles.
+
+\section{Relation to Yang--Mills Theory}
+
+The preceding construction is the Abelian case of Yang--Mills
+theory.
+
+For electromagnetism the structure group is
+\[
+U(1),
+\]
+which is Abelian, and locally
+\[
+F=\dd A.
+\]
+
+For a non-Abelian Lie group $G$, a connection is locally represented
+by a Lie-algebra-valued one-form
+\[
+A\in\Omega^1(M;\mathfrak{g}),
+\]
+and its curvature becomes
+\[
+F_A
+=
+\dd A+A\wedge A.
+\]
+
+The Yang--Mills action is
+\[
+S_{\mathrm{YM}}[A]
+=
+-\frac12
+\int_M
+\operatorname{tr}
+\left(
+F_A\wedge *F_A
+\right).
+\]
+
+Thus Maxwell theory is the simplest example of the general
+geometric principle
+\[
+\boxed{
+\text{gauge field}
+=
+\text{connection},
+\qquad
+\text{field strength}
+=
+\text{curvature}.
+}
+\]
+
+\end{document}
+

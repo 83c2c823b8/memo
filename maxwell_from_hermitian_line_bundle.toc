@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Spacetime}{1}{section.1}%
+\contentsline {section}{\numberline {2}Complex Line Bundles}{2}{section.2}%
+\contentsline {section}{\numberline {3}Hermitian Structure}{3}{section.3}%
+\contentsline {section}{\numberline {4}Connections}{3}{section.4}%
+\contentsline {section}{\numberline {5}Gauge Transformations}{4}{section.5}%
+\contentsline {section}{\numberline {6}Curvature}{4}{section.6}%
+\contentsline {section}{\numberline {7}The First Maxwell Equation as a Bianchi Identity}{4}{section.7}%
+\contentsline {section}{\numberline {8}The Maxwell Action}{5}{section.8}%
+\contentsline {section}{\numberline {9}Variation of the Maxwell Action}{5}{section.9}%
+\contentsline {section}{\numberline {10}Vacuum Maxwell Equations}{6}{section.10}%
+\contentsline {section}{\numberline {11}Electric and Magnetic Fields}{6}{section.11}%
+\contentsline {section}{\numberline {12}Coupling to an Electric Current}{7}{section.12}%
+\contentsline {section}{\numberline {13}Topology of the Electromagnetic Field}{8}{section.13}%
+\contentsline {section}{\numberline {14}Geometric Summary}{8}{section.14}%
+\contentsline {section}{\numberline {15}Relation to Yang--Mills Theory}{9}{section.15}%

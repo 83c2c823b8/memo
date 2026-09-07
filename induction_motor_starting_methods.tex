@@ -1,0 +1,339 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+
+\title{Starting Methods and Starting Torque of Induction Motors}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Basic Concept}
+
+The starting method of an induction motor depends on the type of rotor
+and the type of power supply.
+
+At the instant of starting, the rotor speed is zero:
+
+\[
+N = 0.
+\]
+
+Therefore, the slip is
+
+\[
+s = \frac{N_s-N}{N_s} = 1,
+\]
+
+where \(N_s\) is the synchronous speed and \(N\) is the rotor speed.
+
+Thus,
+
+\[
+\boxed{s=1 \quad \text{at starting}}
+\]
+
+is an important relation.
+
+\section{Three-Phase Wound-Rotor Induction Motor}
+
+A wound-rotor induction motor has three-phase windings on its rotor.
+These rotor windings are connected to external resistors through
+\textbf{slip rings} and brushes.
+
+\[
+\boxed{
+\text{Rotor winding}
+\rightarrow
+\text{Slip rings}
+\rightarrow
+\text{Brushes}
+\rightarrow
+\text{External resistance}
+}
+\]
+
+At starting,
+
+\[
+s=1.
+\]
+
+By increasing the rotor resistance \(R_2\), the slip at which the
+maximum torque occurs moves toward \(s=1\).
+
+In simplified form,
+
+\[
+s_{\mathrm{max}} \propto R_2.
+\]
+
+Therefore,
+
+\[
+R_2 \uparrow
+\quad\Rightarrow\quad
+s_{\mathrm{max}} \rightarrow 1
+\quad\Rightarrow\quad
+T_{\mathrm{start}} \uparrow.
+\]
+
+Hence, the purpose of adding external rotor resistance is to obtain
+a large starting torque.
+
+\[
+\boxed{
+\text{Wound rotor}
+\rightarrow
+\text{Increase rotor resistance}
+\rightarrow
+\text{Large starting torque}
+}
+\]
+
+The slip rings themselves do not increase the torque.
+Their purpose is to provide an electrical connection between the
+rotating rotor winding and the stationary external resistance.
+
+\section{Three-Phase Squirrel-Cage Induction Motor}
+
+In a squirrel-cage induction motor, the rotor circuit cannot be
+connected to an external resistance.
+
+Therefore, starting is controlled from the \textbf{stator (power-supply) side}.
+
+Typical starting methods are:
+
+\begin{itemize}
+    \item Star-delta starting
+    \item Autotransformer starting
+    \item Inverter starting
+\end{itemize}
+
+For an induction motor, the starting torque is approximately
+proportional to the square of the applied voltage:
+
+\[
+\boxed{T_{\mathrm{start}} \propto V^2}.
+\]
+
+Therefore, if the starting voltage is reduced,
+
+\[
+V \downarrow
+\quad\Rightarrow\quad
+T_{\mathrm{start}} \downarrow.
+\]
+
+However, the starting current is also reduced.
+
+\subsection{Star-Delta Starting}
+
+The motor is connected in star (\(Y\)) during starting and changed to
+delta (\(\Delta\)) during normal operation.
+
+For the same line voltage \(V_L\), the phase voltage during star
+connection is
+
+\[
+V_{\mathrm{ph},Y}
+=
+\frac{V_L}{\sqrt{3}}.
+\]
+
+Since
+
+\[
+T \propto V^2,
+\]
+
+the starting torque becomes approximately
+
+\[
+T_Y
+=
+\left(
+\frac{1}{\sqrt{3}}
+\right)^2 T_{\Delta}
+=
+\frac{1}{3}T_{\Delta}.
+\]
+
+Thus,
+
+\[
+\boxed{
+T_{Y,\mathrm{start}}
+\approx
+\frac{1}{3}
+T_{\Delta,\mathrm{start}}
+}
+\]
+
+for the same line voltage.
+
+\subsection{Autotransformer Starting}
+
+An autotransformer is inserted between the power supply and the motor
+during starting.
+
+It reduces the motor terminal voltage:
+
+\[
+V_{\mathrm{motor}} < V_{\mathrm{supply}}.
+\]
+
+Therefore,
+
+\[
+V \downarrow
+\quad\Rightarrow\quad
+I_{\mathrm{start}} \downarrow,
+\qquad
+T_{\mathrm{start}} \downarrow.
+\]
+
+\subsection{Inverter Starting}
+
+An inverter controls both the voltage and frequency supplied to the
+motor.
+
+\[
+\boxed{
+\text{Inverter}
+\rightarrow
+V \text{ control} + f \text{ control}
+}
+\]
+
+By starting at a low frequency and appropriately controlling the
+voltage, the motor can start smoothly while producing useful torque.
+
+\section{Single-Phase Induction Motor}
+
+A single-phase induction motor cannot produce a starting torque using
+only its main winding.
+
+At standstill,
+
+\[
+\boxed{T_{\mathrm{start}}=0}
+\]
+
+for an ideal single-phase induction motor with only the main winding.
+
+Therefore, an auxiliary winding is used.
+
+The current in the auxiliary winding is made to have a different
+\textbf{phase} from the current in the main winding.
+
+\[
+I_{\mathrm{main}}
+\quad\text{and}\quad
+I_{\mathrm{aux}}
+\]
+
+have a phase difference:
+
+\[
+\phi \neq 0.
+\]
+
+This phase difference produces a rotating magnetic field component,
+which creates starting torque.
+
+Thus,
+
+\[
+\boxed{
+\text{Single phase}
+\rightarrow
+\text{Auxiliary winding}
+\rightarrow
+\text{Phase difference}
+\rightarrow
+\text{Starting torque}
+}
+\]
+
+\section{Summary}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{p{0.25\textwidth} p{0.32\textwidth} p{0.32\textwidth}}
+\toprule
+\textbf{Motor Type} &
+\textbf{Starting Method} &
+\textbf{Starting-Torque Concept} \\
+\midrule
+
+Three-phase wound rotor &
+External rotor resistance through slip rings &
+Increase \(R_2\) so that the maximum-torque point approaches
+\(s=1\), producing a large starting torque. \\
+
+Three-phase squirrel cage &
+Star-delta, autotransformer, or inverter &
+The rotor circuit cannot be externally modified.
+For voltage-reduction starting,
+\(T_{\mathrm{start}}\propto V^2\). \\
+
+Single-phase induction motor &
+Auxiliary winding with a phase difference &
+Main winding alone gives zero starting torque ideally.
+A phase difference produces starting torque. \\
+
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Key Relations to Remember}
+
+\[
+\boxed{s=1 \qquad \text{at starting}}
+\]
+
+\[
+\boxed{
+\text{Wound rotor: }
+R_2\uparrow
+\Rightarrow
+s_{\mathrm{max}}\rightarrow 1
+\Rightarrow
+T_{\mathrm{start}}\uparrow
+}
+\]
+
+\[
+\boxed{
+\text{Squirrel cage: }
+T_{\mathrm{start}}\propto V^2
+}
+\]
+
+\[
+\boxed{
+\text{Single phase: }
+T_{\mathrm{start}}=0
+\quad
+\text{with the main winding alone}
+}
+\]
+
+\[
+\boxed{
+\text{Auxiliary winding}
++
+\text{phase difference}
+\Rightarrow
+\text{starting torque}
+}
+\]
+
+\end{document}
